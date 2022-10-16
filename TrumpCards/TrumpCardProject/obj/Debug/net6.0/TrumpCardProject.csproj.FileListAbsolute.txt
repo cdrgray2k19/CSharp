@@ -1,0 +1,15 @@
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/bin/Debug/net6.0/TrumpCardProject
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/bin/Debug/net6.0/TrumpCardProject.deps.json
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/bin/Debug/net6.0/TrumpCardProject.runtimeconfig.json
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/bin/Debug/net6.0/TrumpCardProject.dll
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/bin/Debug/net6.0/TrumpCardProject.pdb
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.csproj.AssemblyReference.cache
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.AssemblyInfoInputs.cache
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.AssemblyInfo.cs
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.csproj.CoreCompileInputs.cache
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.dll
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/refint/TrumpCardProject.dll
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.pdb
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.genruntimeconfig.cache
+/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/ref/TrumpCardProject.dll
