@@ -17,7 +17,7 @@ namespace TrumpCardProject
         {
             for (int i = 0; i < nums.Count; i++)
             {
-                fields.Add(i+1, nums[i]);
+                fields.Add(i, nums[i]);
             }
         }
 
