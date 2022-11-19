@@ -13,3 +13,18 @@
 /Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.pdb
 /Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.genruntimeconfig.cache
 /Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/ref/TrumpCardProject.dll
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.csproj.AssemblyReference.cache
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.AssemblyInfoInputs.cache
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.AssemblyInfo.cs
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.csproj.CoreCompileInputs.cache
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.dll
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/refint/TrumpCardProject.dll
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.pdb
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/bin/Debug/net6.0/TrumpCardProject
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/bin/Debug/net6.0/TrumpCardProject.deps.json
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/bin/Debug/net6.0/TrumpCardProject.runtimeconfig.json
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/bin/Debug/net6.0/TrumpCardProject.dll
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/bin/Debug/net6.0/TrumpCardProject.pdb
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/TrumpCardProject.genruntimeconfig.cache
+/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/Debug/net6.0/ref/TrumpCardProject.dll

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/TrumpCardProject.csproj",
+      "projectUniqueName": "/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/TrumpCardProject.csproj",
       "projectName": "TrumpCardProject",
-      "projectPath": "/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/TrumpCardProject.csproj",
+      "projectPath": "/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/TrumpCardProject.csproj",
       "packagesPath": "/Users/charliegray/.nuget/packages/",
-      "outputPath": "/Users/charliegray/Documents/RiderProjects/TrumpCards/TrumpCardProject/obj/",
+      "outputPath": "/Users/charliegray/Library/Mobile Documents/com~apple~CloudDocs/programming/RiderProjects/TrumpCards/TrumpCardProject/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/charliegray/.nuget/NuGet/NuGet.Config"
