@@ -257,6 +257,28 @@ namespace TrumpCardProject
             return field;
         }
 
+        private void endOfGame()
+        {
+            Console.WriteLine("\nEnd of game");
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i] != null)
+                {
+                    Console.WriteLine($"player {i+1} won!");
+                    return;
+                }
+            }
+
+            wait("Press any key to play again");
+        }
+
+        private void wait(string msg)
+        {
+            Console.WriteLine(msg);
+            Console.ReadLine();
+            Console.Clear();
+        }
+
         public void play()
         {
             int playerInd = 0;
@@ -288,29 +310,17 @@ namespace TrumpCardProject
                 }
                 //update player that gets to pick field
                 playerInd += 1;
-                Console.WriteLine("Press any key to continue onto the next round");
-                Console.ReadLine();
-                Console.Clear();
+                wait("Press any key to continue onto the next round");
             }
             //end of game, determine the only player who had cards left and therefore won
-            Console.WriteLine("\nEnd of game");
-            for (int i = 0; i < players.Count; i++)
-            {
-                if (players[i] != null)
-                {
-                    Console.WriteLine($"player {i+1} won!");
-                    return;
-                }
-            }
-            Console.WriteLine("Press any key to play again");
-            Console.ReadLine();
-            Console.Clear();
+
+            endOfGame();
         }
     }
     
     class Program
     {
-        
+        //computer and player, player inherits from computer, shuffle deck, with names, and attributes named
         public static void Main(string[] args)
         {
             //create players with random values on cards, to test, 6 cards each
