@@ -11,19 +11,19 @@ namespace TrumpCardProject
 
     class Card
     {
-        private Dictionary<int, int> fields = new Dictionary<int, int>(6);
+        private List<int> fields = new List<int>(6);
         
         public Card(List<int> nums)
         {
             for (int i = 0; i < nums.Count; i++)
             {
-                fields.Add(i, nums[i]);
+                fields.Add(nums[i]);
             }
         }
 
-        public int GetFieldVal(int key)
+        public int GetFieldVal(int ind)
         {
-            return fields[key];
+            return fields[ind];
         }
 
     }
@@ -123,7 +123,7 @@ namespace TrumpCardProject
     {
         
         private List<Queue> players = new List<Queue>();
-        private List<string> fields = new List<string>();
+        private List<string> fieldNames = new List<string>();
         private int numPlayers = 0;
         public Game(int numPlayers)
         {
@@ -135,10 +135,10 @@ namespace TrumpCardProject
             
             //create basic test attributes for each card
             
-            fields = new List<string>{"field 1", "field 2", "field 3", "field 4", "field 5", "field 6"};
+            fieldNames = new List<string>{"field 1", "field 2", "field 3", "field 4", "field 5", "field 6"};
             
         }
-        public Queue generatePlayer()
+        private Queue generatePlayer()
         {
             Queue newPlayer = new Queue();
             Random generator = new Random();
@@ -161,12 +161,109 @@ namespace TrumpCardProject
             return newPlayer;
         }
 
+        private void displayCard(Card c)
+        {
+            for (int i = 0; i < fieldNames.Count; i++)
+            {
+                Console.WriteLine($"{fieldNames[i]}: {c.GetFieldVal(i)}");
+            }
+        }
+
+        private void playRound(int field)
+        {
+            int max = -1;
+            int winningPlayer = -1;
+            List<Card> placed = new List<Card>();
+
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i] == null)
+                {
+                    continue;
+                }
+                int val = players[i].peek().Data.GetFieldVal(field);
+                placed.Add(players[i].remove().Data);
+                Console.WriteLine($"player {i+1} has value {val} for this attribute on their top card");
+                if (val > max)
+                {
+                    max = val;
+                    winningPlayer = i;
+                }
+            }
+            //UPDATE LOGIC FOR DRAWING CARDS
+                
+                
+            //winning player for that round picks up cards
+            Console.WriteLine($"\nplayer {winningPlayer+1} has won with a value of {max} for this attribute on their top card");
+            Console.WriteLine($"All cards placed down are now picked up by player {winningPlayer+1}\n");
+                
+            for (int i = 0; i < placed.Count; i++)
+            {
+                players[winningPlayer].add(placed[i]);
+            }
+            
+        }
+        
+        private void displayInfo()
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i] == null)
+                {
+                    continue;
+                }
+                if (players[i].isEmpty())
+                {
+
+                    Console.WriteLine($"player {i+1} has 0 cards left and is now out of the game");
+                    players[i] = null;
+                    numPlayers -= 1;
+                }
+                else
+                {
+                    Console.WriteLine($"player {i+1} has {players[i].getLength()} cards");
+                }
+            }
+        }
+
+        public int newField(int playerInd)
+        {
+            int field = -1;
+                if (playerInd%players.Count == 0)
+                {
+
+                    for (int i = 0; i < players.Count; i++)
+                    {
+                        if (players[i] == null)
+                        {
+                            continue;
+                        }
+
+                        Console.WriteLine($"player {i + 1} has {players[i].getLength()} cards");
+                    }
+
+                    Console.WriteLine("\nHere is your card");
+                    displayCard(players[0].peek().Data);
+                    Console.WriteLine("\nenter field number for value to be taken from");
+                    field = Convert.ToInt32(Console.ReadLine()) - 1;
+                }
+                else
+                {
+                    Random generator = new Random();
+                    field = generator.Next(0, fieldNames.Count);
+                    Console.WriteLine($"\nplayer {(playerInd%players.Count)+1} has chosen the {fieldNames[field]}\n");
+                }
+
+            return field;
+        }
+
         public void play()
         {
             int playerInd = 0;
             //enter game loop
             while (true)
             {
+                
                 if (players[playerInd%players.Count] == null)
                 {
                     playerInd += 1;
@@ -174,85 +271,16 @@ namespace TrumpCardProject
                 }
                 
                 //determine field that cards should be evaluated on
-                int field = -1;
-                if (playerInd%players.Count == 0)
-                {
-                    Console.WriteLine("\nenter field number for value to be taken from");
-                    field = Convert.ToInt32(Console.ReadLine());
-                    
-                }
-                else
-                {
-                    Random generator = new Random();
-                    field = generator.Next(0, fields.Count);
-                    Console.WriteLine($"\nplayer {(playerInd%players.Count)+1} has chosen the {fields[field]}\n");
-                }
+                int field = newField(playerInd);
                 
                 //simulate placing and comparing cards
                 
-                int max = -1;
-                int winningPlayer = -1;
-                List<Card> placed = new List<Card>();
+                playRound(field);
 
-                /*List<int> toPlayRound = new List<int>();
 
-                for (int i = 0; i < players.Count; i++)
-                {
-                    if (players[i] != null)
-                    {
-                        toPlayRound.Add(i);
-                    }
-                }
-                
-                winningPlayer = placeCards(toPlayRound, 0, ref players, ref placed, ref max, ref field);*/
-
-                for (int i = 0; i < players.Count; i++)
-                {
-                    if (players[i] == null)
-                    {
-                        continue;
-                    }
-                    int val = players[i].peek().Data.GetFieldVal(field);
-                    placed.Add(players[i].remove().Data);
-                    Console.WriteLine($"player {i+1} has value {val} for this attribute on their top card");
-                    if (val > max)
-                    {
-                        max = val;
-                        winningPlayer = i;
-                    }
-                }
-                //UPDATE LOGIC FOR DRAWING CARDS
-                
-                
-                //winning player for that round picks up cards
-                Console.WriteLine($"\nplayer {winningPlayer+1} has won with a value of {max} for this attribute on their top card");
-                Console.WriteLine($"All cards placed down are now picked up by player {winningPlayer+1}\n");
-                
-                for (int i = 0; i < placed.Count; i++)
-                {
-                    players[winningPlayer].add(placed[i]);
-                }
-                
                 //if players have ran out of cards, eliminate them from game, else announce the number of cards they have left
-                
-                for (int i = 0; i < players.Count; i++)
-                {
-                    if (players[i] == null)
-                    {
-                        continue;
-                    }
-                    if (players[i].isEmpty())
-                    {
 
-                        Console.WriteLine($"player {i+1} has 0 cards left and is now out of the game");
-                        players[i] = null;
-                        numPlayers -= 1;
-                    }
-                    else
-                    {
-                        Console.WriteLine($"player {i+1} has {players[i].getLength()} cards left");
-                    }
-                }
+                displayInfo();
 
                 if (numPlayers < 2)
                 {
@@ -260,6 +288,9 @@ namespace TrumpCardProject
                 }
                 //update player that gets to pick field
                 playerInd += 1;
+                Console.WriteLine("Press any key to continue onto the next round");
+                Console.ReadLine();
+                Console.Clear();
             }
             //end of game, determine the only player who had cards left and therefore won
             Console.WriteLine("\nEnd of game");
@@ -271,7 +302,9 @@ namespace TrumpCardProject
                     return;
                 }
             }
-            Console.WriteLine("draw!");
+            Console.WriteLine("Press any key to play again");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
     
@@ -283,17 +316,35 @@ namespace TrumpCardProject
             //create players with random values on cards, to test, 6 cards each
             while (true)
             {
-                Console.WriteLine("How many players would you like to play with?\n>");
+                Console.WriteLine("\nHow many players would you like to play with?\n>");
                 int numPlayers = Convert.ToInt32(Console.ReadLine());
                 if (numPlayers < 2)
                 {
                     break;
                 }
+
+                Console.Clear();
                 Game test = new Game(numPlayers);
                 test.play();
             }
-            
         }
+        
+        
+        
+        
+        
+        /*List<int> toPlayRound = new List<int>();
+
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i] != null)
+                {
+                    toPlayRound.Add(i);
+                }
+            }
+            
+            winningPlayer = placeCards(toPlayRound, 0, ref players, ref placed, ref max, ref field);*/
+        
         /*
         public static int placeCards(List<int> toPlayRound, int order, ref List<Queue> players, ref List<Card> placed, ref int max, ref int field)
         {
