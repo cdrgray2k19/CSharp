@@ -1,13 +1,15 @@
+using System.Security.Cryptography;
+
 namespace TrumpCardProject;
 
 public class Deck
 {
-    private List<Card> cards = new List<Card>();
+    public List<Card> cards = new List<Card>();
     private List<string> fieldNames = new List<string> { "attack", "defence", "speed", "strength", "height", "weight" };
     public Deck()
     {
         Random generator = new Random();
-        for (int i = 0; i < 36; i++)
+        for (int i = 0; i < 6; i++)
         {
             List<int> values = new List<int>();
 
@@ -38,11 +40,88 @@ public class Deck
 
     public int getNumOfFields()
     {
-        return fieldNames.Count();
+        return fieldNames.Count;
     }
 
-    public void shuffle()
+    public List<Card> shuffle(List<Card> arr, int numTimes, int order = 0)
     {
-        return;
+        if (order == numTimes)
+        {
+            return arr;
+        }
+        Random generator = new Random();
+        int mid = generator.Next(13, 23);
+        List<Card> left = splitDeck(cards, 0, mid);
+        List<Card> right = splitDeck(cards, mid, cards.Count);
+        List<Card> shuffledDeck = new List<Card>();
+        while (left.Count > 0 & right.Count > 0)
+        {
+            int indicator = generator.Next(0, 2);
+            if (indicator == 0)
+            {
+                int numToAdd = Math.Min(generator.Next(1, 4), left.Count);
+                for (int _ = 0; _ < numToAdd; _++)
+                {
+                    shuffledDeck.Add(left[left.Count - 1]);
+                    left.RemoveAt(left.Count - 1);
+                }
+            }
+            else
+            {
+                int numToAdd = Math.Min(generator.Next(1, 4), right.Count);
+                for (int _ = 0; _ < numToAdd; _++)
+                {
+                    shuffledDeck.Add(right[0]);
+                    right.RemoveAt(0);
+                }
+            }
+            
+        }
+
+        if (left.Count > 0)
+        {
+            int repeats = left.Count;
+            for (int _ = 0; _ < repeats; _++)
+            {
+                shuffledDeck.Add(left[left.Count - 1]);
+                left.RemoveAt(left.Count - 1);
+            }
+        }
+        if (right.Count > 0)
+        {
+            int repeats = right.Count;
+            for (int _ = 0; _ < repeats; _++)
+            {
+                shuffledDeck.Add(right[0]);
+                right.RemoveAt(0);
+            }
+        }
+
+        return shuffle(shuffledDeck, numTimes, order + 1);
+    }
+
+    private List<Card> splitDeck(List<Card> arr, int from, int to)
+    {
+        List<Card> res = new List<Card>();
+        bool inRange = false;
+        for (int i = 0; i < arr.Count; i++)
+        {
+            if (i == from)
+            {
+                inRange = true;
+            }
+
+            if (i == to)
+            {
+                inRange = false;
+            }
+
+            if (inRange)
+            {
+                res.Add(arr[i]);
+            }
+        }
+
+        return res;
     }
 }

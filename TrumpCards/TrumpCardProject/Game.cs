@@ -25,6 +25,7 @@ public class Game
                 
             }
 
+            this.deck.cards = this.deck.shuffle(this.deck.cards, 1);
             for (int i = 0; i < this.deck.getDeckLength(); i++)
             {
                 players[i % players.Count].pickUp(this.deck.getCard(i));
