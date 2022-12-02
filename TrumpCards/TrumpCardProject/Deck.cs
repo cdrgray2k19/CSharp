@@ -6,17 +6,18 @@ public class Deck
 {
     public List<Card> cards = new List<Card>();
     private List<string> fieldNames = new List<string> { "attack", "defence", "speed", "strength", "height", "weight" };
+    private List<int> fieldRanges = new List<int> {50, 50, 30, 10, 7, 100};
     public Deck()
     {
         Random generator = new Random();
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 36; i++)
         {
             List<int> values = new List<int>();
 
 
             for (int j = 0; j < 6; j++)
             {
-                values.Add(generator.Next(0, 100 + 1));
+                values.Add(generator.Next(0, fieldRanges[j]+1));
             }
 
             Card c = new Card(values);

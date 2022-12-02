@@ -15,7 +15,7 @@ public class Player
         Console.WriteLine("\nHere is your card"); 
         displayTopCard(); 
         Console.WriteLine("\nenter field number for value to be taken from"); 
-        int field = Convert.ToInt32(Console.ReadLine()) - 1; 
+        int field = Convert.ToInt32(Console.ReadLine()) - 1;
         return field;
     }
     private void displayTopCard()
