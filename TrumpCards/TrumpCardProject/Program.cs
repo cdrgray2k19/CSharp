@@ -11,7 +11,6 @@ namespace TrumpCardProject
 
     class Program
     {
-        //computer and player, player inherits from computer, shuffle deck, with names, and attributes named
         public static void Main(string[] args)
         {
             Console.WriteLine("\nHow many players would you like to play with?\n>");
