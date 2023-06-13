@@ -21,6 +21,6 @@ public class JapaneseChef : Chef
 
     public override void Shout()
     {
-        Console.WriteLine("子羊のソースはどこですか");
+        Console.WriteLine("ティーポットエラー");
     }
 }
